@@ -15,10 +15,25 @@ def test_test():
     driver = webdriver.Firefox()
     driver.get(
         "http://app1.sfda.gov.cn/datasearch/face3/base.jsp?tableId=34&tableName=TABLE34&title=%D2%A9%C6%B7%C9%FA%B2%FA%C6%F3%D2%B5&bcId=118103348874362715907884020353")
-    sleep(5)
-    driver.find_element(By.ID, "keyword").click()
-    driver.find_element(By.ID, "keyword").send_keys("甘")
-    driver.find_element(By.NAME, "Submit").click()
+    sleep(3)
+    # driver.find_element(By.ID, "keyword").click()
+    # driver.find_element(By.ID, "keyword").send_keys("甘")
+    # sleep(1)s
+    # driver.find_element(By.NAME, "Submit").click()
+    a = driver.find_elements_by_partial_link_text("甘")
+    a[5].click()
+    b = driver.find_elements_by_tag_name("td")
+    for x in b:
+        print(x.get_attribute("textContent"))
+    # for i in a:
+    #     i.click()
+    #     b = driver.find_elements_by_tag_name("td")
+    #     print(b[5].get_attribute("textContent"))
+    # print(a)
+    # a[12].click()
+    # for i in a:
+    #     i.click()
+    # print(a)
 # sleep(5)
 # driver.delete_all_cookies()
 # sleep(1)
